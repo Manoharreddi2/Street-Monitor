@@ -1,0 +1,20 @@
+# Dependency directories
+node_modules/
+dist/
+backend/target/
+
+# IDE directories
+.idea/
+*.iml
+.vscode/
+
+# Build and logs
+*.log
+backend/*.log
+
+# Environments and Sensitive Configuration
+backend/src/main/resources/application.properties
+frontend/.env
+frontend/.env.local
+.env
+.DS_Store
