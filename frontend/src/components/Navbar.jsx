@@ -27,7 +27,7 @@ const Navbar = () => {
           display: 'flex', alignItems: 'center', gap: '0.75rem', 
           textDecoration: 'none'
         }}>
-          <img src="/logo.png" alt="Street Monitor" style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
+          <img src="/logo.png" alt="Street Monitor" style={{ height: '90px', width: 'auto', objectFit: 'contain' }} />
         </Link>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
