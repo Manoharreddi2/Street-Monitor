@@ -34,7 +34,7 @@ Meanwhile, authorized **Administrators** have a dedicated dashboard where they c
 ---
 
 ## 🚀 Live Demo
- [https://street-monitor.vercel.app](https://street-monitor.vercel.app)
+👉 [https://street-monitor.vercel.app](https://street-monitor.vercel.app)
 ---
 
 ## 🛠️ Local Development Setup
