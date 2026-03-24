@@ -84,9 +84,33 @@ const ReportIssuePage = () => {
         
         {/* Left Side: Map Selection */}
         <div className="glass-panel" style={{ padding: '1.5rem', height: '100%', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            <FaMapPin color="var(--primary-color)" />
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>1. Location</h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <FaMapPin color="var(--primary-color)" />
+              <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>1. Location</h2>
+            </div>
+            <button 
+              type="button" 
+              className="btn btn-outline" 
+              style={{ padding: '0.4rem 0.8rem', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+              onClick={() => {
+                if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                      setLocation({ lat: position.coords.latitude, lng: position.coords.longitude });
+                      setError('');
+                    },
+                    (err) => {
+                      setError("Could not access your location. Please check browser permissions.");
+                    }
+                  );
+                } else {
+                  setError("Geolocation is not supported by this browser.");
+                }
+              }}
+            >
+              📍 Locate Me
+            </button>
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>
             Click on the map to drop a pin exactly where the issue is.

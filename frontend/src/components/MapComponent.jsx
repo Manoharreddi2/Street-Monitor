@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap } from 'react-leaflet';
 import { Link } from 'react-router-dom';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -37,9 +37,19 @@ const LocationSelector = ({ setLocation }) => {
   return null;
 };
 
+const MapFlyTo = ({ center }) => {
+  const map = useMap();
+  useEffect(() => {
+    if (center) {
+      map.flyTo(center, map.getZoom(), { duration: 1.5 });
+    }
+  }, [center, map]);
+  return null;
+};
+
 const MapComponent = ({ issues = [], interactive = false, selectedLocation, onLocationSelect }) => {
-  // Default center (New York, adjust as needed)
-  const defaultCenter = [40.7128, -74.0060];
+  // Default center (Hyderabad, India)
+  const defaultCenter = [17.3850, 78.4867];
   
   // Set center to first issue or selected location if provided
   const center = selectedLocation ? [selectedLocation.lat, selectedLocation.lng] 
@@ -59,6 +69,8 @@ const MapComponent = ({ issues = [], interactive = false, selectedLocation, onLo
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           className="map-tiles"
         />
+
+        <MapFlyTo center={center} />
         
         {/* Render interactive marker and event listener if in select mode */}
         {interactive && onLocationSelect && (
