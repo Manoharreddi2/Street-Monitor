@@ -1,66 +1,51 @@
 # Street Monitor 🚦
 
-A full-stack, civic-tech web application that empowers citizens to report, track, and upvote road-related infrastructure issues (potholes, broken streetlights, road hazards, etc.) directly to their local authorities.
+A full-stack, civic-tech web application that empowers citizens to report, track, and upvote road-related infrastructure issues.
 
 ![Street Monitor Logo](./frontend/public/logo.png)
 
-## 🌟 Key Features
+## 🚦 About the Project
+**Street Monitor** is a civic-tech web application designed to bridge the gap between citizens and local authorities. 
+It allows everyday users to instantly **report public infrastructure issues** (such as dangerous potholes, broken streetlights, or road hazards) by dropping a precise pin on an interactive map, providing a severity rating, and uploading photo evidence from their phone. Other citizens can **upvote** these issues to increase their visibility. 
+Meanwhile, authorized **Administrators** have a dedicated dashboard where they can review the photo evidence, check the exact GPS coordinates, and update the live status of the issue (from *Reported* to *In Progress* to *Resolved*).
 
-### 👤 For Users (Citizens)
-*   **Secure Authentication:** Sign up using an email/password or instantly log in using **Google OAuth**.
-*   **Interactive Map Dashboard:** View all reported issues in your area on a live interactive map (powered by Leaflet).
-*   **Report New Issues:** Seamlessly report an issue by dropping a pin on the map, providing a title, description, issue type, and severity scale (1-5).
-*   **Photo Evidence:** Upload photo evidence of the issue directly from your device.
-*   **Upvoting System:** Upvote issues reported by other citizens to increase their visibility and priority.
-*   **Status Tracking:** Track the real-time status of your reported issues (`REPORTED` ➔ `IN PROGRESS` ➔ `RESOLVED`).
+## 💻 The Tech Stack
 
-### 🛡️ For Administrators
-*   **Role-Based Access Control:** Secure Admin-only dashboard ensuring only authorized personnel can access management features.
-*   **Centralized Management:** View all reported issues in a highly organized, sortable data table.
-*   **Review Detailed Evidence:** Open specific issues to view the exact GPS map coordinates and inspect attached photo evidence.
-*   **Status Updates:** Instantly update the status of any issue (e.g., mark a pothole as "Resolved"), which updates live for all end-users.
+### Frontend (The User Interface)
+* **React & Vite:** For a lightning-fast, modern, single-page application experience.
+* **React Router:** For seamless navigation between the map, login, and reporting pages.
+* **React-Leaflet:** To render the live interactive maps and calculate precise GPS pins.
+* **Google Identity Services:** To provide secure, one-click "Login with Google" OAuth for citizens.
+* **Axios:** To communicate smoothly with the backend API.
+* **Vercel:** Cloud platform hosting the live frontend website.
 
----
+### Backend (The Server & Security)
+* **Java 17 & Spring Boot (v3.2.3):** The robust core engine powering the API and business logic.
+* **Spring Security:** Protecting the application with strict Role-Based Access Control (Admins vs Users).
+* **JWT (JSON Web Tokens):** For secure, stateless authentication without session cookies.
+* **Spring Data JPA / Hibernate:** To translate Java objects into database records seamlessly.
+* **Docker:** Containerized to run consistently entirely inside isolated cloud environments.
+* **Render:** Cloud platform hosting the live backend server.
 
-## 🛠️ Technology Stack
-
-### Frontend (User Interface)
-*   **Framework:** React (built with Vite for lightning-fast performance)
-*   **Routing:** React Router v6
-*   **Styling:** Custom CSS with Glassmorphism UI components
-*   **Map Integration:** React-Leaflet
-*   **Authentication:** Google Identity Services (`@react-oauth/google`)
-*   **HTTP Client:** Axios
-*   **Deployment:** Vercel
-
-### Backend (Server & API)
-*   **Framework:** Spring Boot 3.2.3 (Java 17)
-*   **Security:** Spring Security with stateless JWT (JSON Web Tokens)
-*   **Data Access:** Spring Data JPA / Hibernate
-*   **Database Integration:** MySQL Connector
-*   **Containerization:** Docker (Multi-stage build)
-*   **Deployment:** Render
-
-### Database
-*   **Engine:** MySQL
-*   **Hosting:** Aiven Cloud
+### Database (The Storage)
+* **MySQL:** A powerful relational database to permanently store users, issue coordinates, image URLs, and votes.
+* **Aiven Cloud:** Highly secure, fully managed cloud database hosting.
 
 ---
 
 ## 🚀 Live Demo
-*   **Frontend:** [https://street-monitor.vercel.app](https://street-monitor.vercel.app)
-*   **Backend API:** [https://street-monitor-1.onrender.com](https://street-monitor-1.onrender.com)
+* **Frontend:** [https://street-monitor.vercel.app](https://street-monitor.vercel.app)
+* **Backend API:** [https://street-monitor-1.onrender.com](https://street-monitor-1.onrender.com)
 
 ---
 
-## 💻 Local Development Setup
+## 🛠️ Local Development Setup
 
 ### 1. Database Setup
-Ensure you have a MySQL instance running (locally or on a cloud provider like Aiven).
-Create a database named `defaultdb` (or update the properties file accordingly).
+Create a MySQL instance and set up a database named `defaultdb`.
 
 ### 2. Backend Setup
-1. Navigate to the backend directory: `cd backend`
+1. `cd backend`
 2. Configure your `application.properties`:
    ```properties
    spring.datasource.url=jdbc:mysql://YOUR_DB_URL
@@ -71,16 +56,11 @@ Create a database named `defaultdb` (or update the properties file accordingly).
 3. Run the Spring Boot application: `./mvnw spring-boot:run`
 
 ### 3. Frontend Setup
-1. Navigate to the frontend directory: `cd frontend`
-2. Install dependencies: `npm install`
-3. Create a `.env` file in the `frontend` folder:
+1. `cd frontend`
+2. `npm install`
+3. Create a `.env` file:
    ```env
    VITE_API_URL=http://localhost:8080/api
    VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
    ```
-4. Start the development server: `npm run dev`
-
----
-
-## 📝 License
-This project is open-source and available under the [MIT License](LICENSE).
+4. `npm run dev`
