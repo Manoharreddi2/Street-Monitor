@@ -59,8 +59,8 @@ const RegisterPage = () => {
         }} />
         
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ display: 'inline-flex', padding: '1rem', background: 'rgba(6, 182, 212, 0.1)', borderRadius: '50%', marginBottom: '1rem' }}>
-            <FaUser size={28} color="var(--secondary-color)" />
+          <div style={{ display: 'inline-flex', marginBottom: '1rem' }}>
+            <img src="/logo.png" alt="Street Monitor" style={{ height: '80px', width: 'auto', objectFit: 'contain' }} />
           </div>
           <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '0.5rem' }}>Create Account</h2>
           <p style={{ color: 'var(--text-muted)' }}>Join Street Monitor to report issues</p>

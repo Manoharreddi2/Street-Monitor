@@ -75,8 +75,8 @@ const LoginPage = () => {
         }} />
         
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ display: 'inline-flex', padding: '1rem', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '50%', marginBottom: '1rem' }}>
-            <FaMapMarkedAlt size={32} color="var(--primary-color)" />
+          <div style={{ display: 'inline-flex', marginBottom: '1rem' }}>
+            <img src="/logo.png" alt="Street Monitor" style={{ height: '80px', width: 'auto', objectFit: 'contain' }} />
           </div>
           <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '0.5rem' }}>Welcome Back</h2>
           <p style={{ color: 'var(--text-muted)' }}>Sign in to continue to Street Monitor</p>
