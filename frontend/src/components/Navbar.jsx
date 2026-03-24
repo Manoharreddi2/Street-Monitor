@@ -24,12 +24,10 @@ const Navbar = () => {
     }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Link to="/" style={{ 
-          display: 'flex', alignItems: 'center', gap: '0.5rem', 
-          color: 'var(--text-main)', textDecoration: 'none', 
-          fontWeight: '700', fontSize: '1.25rem' 
+          display: 'flex', alignItems: 'center', gap: '0.75rem', 
+          textDecoration: 'none'
         }}>
-          <FaMapMarkedAlt color="var(--primary-color)" size={24} />
-          <span>Street<span style={{ color: 'var(--secondary-color)' }}>Monitor</span></span>
+          <img src="/logo.png" alt="Street Monitor" style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
         </Link>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
