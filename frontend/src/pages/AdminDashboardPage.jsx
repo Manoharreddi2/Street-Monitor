@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getIssues, updateIssueStatus } from '../services/apiService';
-import { FaEdit, FaCheck, FaSortNumericDown, FaSortAlphaDown } from 'react-icons/fa';
-
+import { FaEdit, FaCheck, FaSortNumericDown, FaSortAlphaDown, FaEye } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const AdminDashboardPage = () => {
   const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -132,9 +132,14 @@ const AdminDashboardPage = () => {
                           <button onClick={() => setEditingId(null)} className="btn btn-outline" style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem' }}>Cancel</button>
                         </div>
                       ) : (
-                        <button onClick={() => startEditing(issue)} className="btn" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--text-main)', padding: '0.4rem', borderRadius: '4px' }}>
-                          <FaEdit />
-                        </button>
+                        <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
+                          <Link to={`/issue/${issue.id}`} className="btn" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--text-main)', padding: '0.4rem', borderRadius: '4px', display: 'flex', alignItems: 'center' }}>
+                            <FaEye />
+                          </Link>
+                          <button onClick={() => startEditing(issue)} className="btn" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--text-main)', padding: '0.4rem', borderRadius: '4px' }}>
+                            <FaEdit />
+                          </button>
+                        </div>
                       )}
                     </td>
                   </tr>
